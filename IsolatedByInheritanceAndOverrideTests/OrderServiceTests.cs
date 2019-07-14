@@ -35,16 +35,16 @@ namespace IsolatedByInheritanceAndOverride.Tests
 
     internal class StubOrderService : OrderService
     {
-        private List<Order> orders = new List<Order>();
+        private List<Order> _orders = new List<Order>();
 
         internal void SetOrders(List<Order> orders)
         {
-            this.orders = orders;
+            this._orders = orders;
         }
 
         protected override List<Order> GetOrders()
         {
-            return this.orders;
+            return this._orders;
         }
     }
 }
