@@ -43,7 +43,7 @@ namespace IsolatedByInheritanceAndOverride
             // only get orders of book
             var ordersOfBook = orders.Where(x => x.Type == "Book");
 
-            var bookDao = new BookDao();
+            var bookDao = BookDao();
             foreach (var order in ordersOfBook)
             {
                 bookDao.Insert(order);
@@ -77,6 +77,12 @@ namespace IsolatedByInheritanceAndOverride
             }
 
             return result;
+        }
+
+        private static BookDao BookDao()
+        {
+            var bookDao = new BookDao();
+            return bookDao;
         }
 
         private Order Mapping(string[] line)
