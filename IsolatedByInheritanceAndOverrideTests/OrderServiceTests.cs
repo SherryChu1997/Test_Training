@@ -36,6 +36,8 @@ namespace IsolatedByInheritanceAndOverride.Tests
             };
             StubOrderService.SetOrders(orders);
             //act:
+            //從假物件呼叫真方法xD~YAA
+            StubOrderService.SyncBookOrders();
             //assert:
         }
     }
