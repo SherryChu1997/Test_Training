@@ -27,7 +27,13 @@ namespace IsolatedByInheritanceAndOverride.Tests
             //now:GetOrders()不work,  BookDao物件不能用(insert的方法)
 
             //arrange:
-
+            var StubOrderService = new StubOrderService();
+            var orders = new List<Order>
+            {
+                new Order {Type = "Book"},
+                new Order {Type = "DVD"},
+                new Order {Type = "Book"}
+            };
             //act:
             //assert:
         }
