@@ -34,6 +34,7 @@ namespace IsolatedByInheritanceAndOverride.Tests
                 new Order {Type = "DVD"},
                 new Order {Type = "Book"}
             };
+            StubOrderService.SetOrders(orders);
             //act:
             //assert:
         }
