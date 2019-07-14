@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace IsolatedByInheritanceAndOverride.Tests
 {
@@ -27,6 +29,14 @@ namespace IsolatedByInheritanceAndOverride.Tests
 
             //act:
             //assert:
+        }
+    }
+
+    internal class StubOrderService : OrderService
+    {
+        protected override List<Order> GetOrders()
+        {
+            return this.orders;
         }
     }
 }
