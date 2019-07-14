@@ -24,6 +24,7 @@ namespace IsolatedByInheritanceAndOverride.Tests
             //now:GetOrders()不work,  BookDao物件不能用(insert的方法)
 
             //arrange:
+
             //act:
             //assert:
         }

@@ -50,7 +50,7 @@ namespace IsolatedByInheritanceAndOverride
             }
         }
 
-        private List<Order> GetOrders()
+        protected virtual List<Order> GetOrders()
         {
             // parse csv file to get orders
             var result = new List<Order>();
