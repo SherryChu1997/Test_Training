@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NSubstitute;
 
 namespace IsolatedByInheritanceAndOverride.Tests
 {
@@ -34,6 +35,13 @@ namespace IsolatedByInheritanceAndOverride.Tests
 
     internal class StubOrderService : OrderService
     {
+        private List<Order> orders = new List<Order>();
+
+        internal void SetOrders(List<Order> orders)
+        {
+            this.orders = orders;
+        }
+
         protected override List<Order> GetOrders()
         {
             return this.orders;
