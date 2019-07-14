@@ -18,7 +18,7 @@ namespace ServerApiDependency
                 var response = PostToThirdParty(ApiType.CancelGame, apiPage);
                 if (response != (int)ServerResponse.Correct)
                 {
-                    TiDebugHelper.Error($"{apiPage} response has error, ErrorCode = {response}");
+                    ErrorMessage(apiPage, response);
                     if (response == (int)ServerResponse.AuthFail)
                     {
                         throw new AuthFailException();
@@ -81,6 +81,11 @@ namespace ServerApiDependency
                 SaveFailRequestToDb(ApiType.StartGame, apiPage);
                 throw e;
             }
+        }
+
+        private static void ErrorMessage(string apiPage, int response)
+        {
+            TiDebugHelper.Error($"{apiPage} response has error, ErrorCode = {response}");
         }
 
         /// <summary>
