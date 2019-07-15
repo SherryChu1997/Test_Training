@@ -31,6 +31,11 @@ namespace ServerApiDependency
             this.logger = logger;
         }
 
+        public ServerApi()
+        {
+            logger = new Logger();
+        }
+
         public ServerResponse CancelGame()
         {
             const string apiPage = "cancel.php";
