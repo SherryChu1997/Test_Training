@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NSubstitute;
+using ServerApiDependency.Enum;
+using ServerApiDependency.Enums;
 
 namespace ServerApiDependency.Tests
 {
@@ -38,12 +40,11 @@ namespace ServerApiDependency.Tests
             //Assert.Fail();
             //arrange:
             var fakeServerApi = Substitute.For<ServerApi>();
-
             //act:
-
+            fakeServerApi.PostToThirdParty(Arg.Any<ApiType>(), Arg.Any<string>()).ReturnsForAnyArgs(0);
             var actual = fakeServerApi.CancelGame();
             //assert:
-            Assert.AreEqual(0, actual);
+            Assert.AreEqual(ServerResponse.Correct, actual);
         }
     }
 }
