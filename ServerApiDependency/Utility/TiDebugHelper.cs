@@ -2,7 +2,11 @@
 
 namespace ServerApiDependency.Utility
 {
-    public class Logger
+    public interface ILogger
+    {
+    }
+
+    public class Logger : ILogger
     {
         public static void Error(string message)
         {
