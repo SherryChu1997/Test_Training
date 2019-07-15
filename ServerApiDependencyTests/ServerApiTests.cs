@@ -2,6 +2,7 @@
 using NSubstitute;
 using ServerApiDependency.Enum;
 using ServerApiDependency.Enums;
+using ServerApiDependency.Utility.CustomException;
 
 namespace ServerApiDependency.Tests
 {
@@ -24,10 +25,19 @@ namespace ServerApiDependency.Tests
         /// LV 2, verify specific exception be thrown
         /// </summary>
         [TestMethod()]
+        [ExpectedException(typeof(AuthFailException))]
         public void post_cancelGame_third_party_fail_test()
         {
             // Assert PostToThirdParty() return not correct should throw AuthFailException
             //Assert.Fail();
+            //arrange:
+            var fakeServerApi = Substitute.For<ServerApi>();
+
+            //act:
+            fakeServerApi.PostToThirdParty(Arg.Any<ApiType>(), Arg.Any<string>()).ReturnsForAnyArgs(99);
+            var actual = fakeServerApi.CancelGame();
+            //assert:
+            Assert.AreEqual(ServerResponse.AuthFail, actual);
         }
 
         /// <summary>
