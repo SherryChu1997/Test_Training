@@ -28,7 +28,7 @@ namespace ServerApiDependency
             }
             catch (WebException e)
             {
-                TiDebugHelper.Error($" WebException: {e}");
+                Logger.Error($" WebException: {e}");
                 SaveFailRequestToDb(ApiType.CancelGame, apiPage);
                 throw e;
             }
@@ -36,7 +36,7 @@ namespace ServerApiDependency
 
         public void ErrorMessage(string message)
         {
-            TiDebugHelper.Error(message);
+            Logger.Error(message);
         }
 
         public ServerResponse GameResult()
@@ -47,7 +47,7 @@ namespace ServerApiDependency
                 var response = PostToThirdParty(ApiType.GameResult, apiPage);
                 if (response != (int)ServerResponse.Correct)
                 {
-                    TiDebugHelper.Error($"{apiPage} response has error, ErrorCode = {response}");
+                    Logger.Error($"{apiPage} response has error, ErrorCode = {response}");
                     if (response == (int)ServerResponse.AuthFail)
                     {
                         throw new AuthFailException();
@@ -57,7 +57,7 @@ namespace ServerApiDependency
             }
             catch (WebException e)
             {
-                TiDebugHelper.Error($" WebException: {e}");
+                Logger.Error($" WebException: {e}");
                 SaveFailRequestToDb(ApiType.GameResult, apiPage);
                 throw e;
             }
@@ -71,7 +71,7 @@ namespace ServerApiDependency
                 var response = PostToThirdParty(ApiType.StartGame, apiPage);
                 if (response != (int)ServerResponse.Correct)
                 {
-                    TiDebugHelper.Error($"{apiPage} response has error, ErrorCode = {response}");
+                    Logger.Error($"{apiPage} response has error, ErrorCode = {response}");
                     if (response == (int)ServerResponse.AuthFail)
                     {
                         throw new AuthFailException();
@@ -81,7 +81,7 @@ namespace ServerApiDependency
             }
             catch (WebException e)
             {
-                TiDebugHelper.Error($" WebException: {e}");
+                Logger.Error($" WebException: {e}");
                 SaveFailRequestToDb(ApiType.StartGame, apiPage);
                 throw e;
             }
