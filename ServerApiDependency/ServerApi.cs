@@ -23,17 +23,17 @@ namespace ServerApiDependency
 
     public class ServerApi : IServerApi
     {
-        private ILogger logger;
+        private ILogger _logger;
 
         public ServerApi(ILogger logger)
         {
             //ctorf:建構一個field
-            this.logger = logger;
+            _logger = logger;
         }
 
         public ServerApi()
         {
-            logger = new Logger();
+            _logger = new Logger();
         }
 
         public ServerResponse CancelGame()
