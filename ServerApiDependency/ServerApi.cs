@@ -54,7 +54,7 @@ namespace ServerApiDependency
             }
             catch (WebException e)
             {
-                Logger.Error($" WebException: {e}");
+                _logger.Error($" WebException: {e}");
                 SaveFailRequestToDb(ApiType.CancelGame, apiPage);
                 throw e;
             }
@@ -62,7 +62,7 @@ namespace ServerApiDependency
 
         public void ErrorMessage(string message)
         {
-            Logger.Error(message);
+            _logger.Error(message);
         }
 
         public ServerResponse GameResult()
@@ -73,7 +73,7 @@ namespace ServerApiDependency
                 var response = PostToThirdParty(ApiType.GameResult, apiPage);
                 if (response != (int)ServerResponse.Correct)
                 {
-                    Logger.Error($"{apiPage} response has error, ErrorCode = {response}");
+                    _logger.Error($"{apiPage} response has error, ErrorCode = {response}");
                     if (response == (int)ServerResponse.AuthFail)
                     {
                         throw new AuthFailException();
@@ -83,7 +83,7 @@ namespace ServerApiDependency
             }
             catch (WebException e)
             {
-                Logger.Error($" WebException: {e}");
+                _logger.Error($" WebException: {e}");
                 SaveFailRequestToDb(ApiType.GameResult, apiPage);
                 throw e;
             }
@@ -97,7 +97,7 @@ namespace ServerApiDependency
                 var response = PostToThirdParty(ApiType.StartGame, apiPage);
                 if (response != (int)ServerResponse.Correct)
                 {
-                    Logger.Error($"{apiPage} response has error, ErrorCode = {response}");
+                    _logger.Error($"{apiPage} response has error, ErrorCode = {response}");
                     if (response == (int)ServerResponse.AuthFail)
                     {
                         throw new AuthFailException();
@@ -107,7 +107,7 @@ namespace ServerApiDependency
             }
             catch (WebException e)
             {
-                Logger.Error($" WebException: {e}");
+                _logger.Error($" WebException: {e}");
                 SaveFailRequestToDb(ApiType.StartGame, apiPage);
                 throw e;
             }
