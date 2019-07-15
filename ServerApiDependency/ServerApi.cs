@@ -23,6 +23,14 @@ namespace ServerApiDependency
 
     public class ServerApi : IServerApi
     {
+        private ILogger logger;
+
+        public ServerApi(ILogger logger)
+        {
+            //ctorf:建構一個field
+            this.logger = logger;
+        }
+
         public ServerResponse CancelGame()
         {
             const string apiPage = "cancel.php";
