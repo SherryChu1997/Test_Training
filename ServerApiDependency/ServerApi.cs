@@ -83,9 +83,9 @@ namespace ServerApiDependency
             }
         }
 
-        private static void ErrorMessage(string apiPage, int response)
+        private static void ErrorMessage(string message)
         {
-            TiDebugHelper.Error($"{apiPage} response has error, ErrorCode = {response}");
+            TiDebugHelper.Error(message);
         }
 
         /// <summary>
