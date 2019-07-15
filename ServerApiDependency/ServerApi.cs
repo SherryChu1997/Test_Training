@@ -17,7 +17,7 @@ namespace ServerApiDependency
     {
         public void Error(string message)
         {
-            Error(message);
+            TiDebugHelper.Error(message);
         }
     }
 
