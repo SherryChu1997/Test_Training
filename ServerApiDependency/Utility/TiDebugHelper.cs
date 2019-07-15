@@ -2,19 +2,11 @@
 
 namespace ServerApiDependency.Utility
 {
-    public interface ILogger
-    {
-    }
-
-    public class Logger : ILogger
+    public class TiDebugHelper
     {
         public static void Error(string message)
         {
             throw new NotImplementedException();
         }
-    }
-
-    public class TiDebugHelper
-    {
     }
 }

@@ -6,12 +6,12 @@ namespace ServerApiDependency.Tests
     public class ServerApiTests
     {
         /// <summary>
-        /// LV 1, verify api correct response
+        /// LV 3, verify specific method be called
         /// </summary>
         [TestMethod()]
-        public void post_cancelGame_third_party_success_test()
+        public void post_cancelGame_third_party_exception_test()
         {
-            // Assert success
+            // Assert SaveFailRequestToDb() be called once
             Assert.Fail();
         }
 
@@ -26,12 +26,12 @@ namespace ServerApiDependency.Tests
         }
 
         /// <summary>
-        /// LV 3, verify specific method be called
+        /// LV 1, verify api correct response
         /// </summary>
         [TestMethod()]
-        public void post_cancelGame_third_party_exception_test()
+        public void post_cancelGame_third_party_success_test()
         {
-            // Assert SaveFailRequestToDb() be called once
+            // Assert success
             Assert.Fail();
         }
     }

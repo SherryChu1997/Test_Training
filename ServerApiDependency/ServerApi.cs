@@ -8,6 +8,19 @@ using System.Net;
 
 namespace ServerApiDependency
 {
+    public interface ILogger
+    {
+        void Error(string message);
+    }
+
+    public class Logger : ILogger
+    {
+        public void Error(string message)
+        {
+            Error(message);
+        }
+    }
+
     public class ServerApi : IServerApi
     {
         public ServerResponse CancelGame()
