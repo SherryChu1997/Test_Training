@@ -120,7 +120,7 @@ namespace ServerApiDependency
         /// <param name="apiPage">The API page.</param>
         /// <returns></returns>
         /// <exception cref="System.NotImplementedException"></exception>
-        private int PostToThirdParty(ApiType apiType, string apiPage)
+        internal virtual int PostToThirdParty(ApiType apiType, string apiPage)
         {
             // don't implement
             throw new NotImplementedException();

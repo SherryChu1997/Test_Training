@@ -40,6 +40,7 @@ namespace ServerApiDependency.Tests
             var fakeServerApi = Substitute.For<ServerApi>();
 
             //act:
+
             var actual = fakeServerApi.CancelGame();
             //assert:
             Assert.AreEqual(0, actual);
