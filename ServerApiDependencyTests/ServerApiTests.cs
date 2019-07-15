@@ -1,5 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Net;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NSubstitute;
+using NSubstitute.ExceptionExtensions;
+using NSubstitute.ReturnsExtensions;
 using ServerApiDependency.Enum;
 using ServerApiDependency.Enums;
 using ServerApiDependency.Utility.CustomException;
@@ -11,6 +14,8 @@ namespace ServerApiDependency.Tests
     {
         private ServerApi _serverApi;
 
+        public ServerResponse WebException { get; private set; }
+
         /// <summary>
         /// LV 3, verify specific method be called
         /// </summary>
@@ -19,6 +24,13 @@ namespace ServerApiDependency.Tests
         {
             // Assert SaveFailRequestToDb() be called once
             //Assert.Fail();
+            //arrange:
+            var fakeServerapi = Substitute.For<ServerApi>();
+            //act:
+            fakeServerapi.SaveFailRequestToDb(Arg.Any<ApiType>(), Arg.Any<string>()).Throws<WebException>();
+            var actual = fakeServerapi.CancelGame();
+            //assert:
+            Assert.AreEqual(WebException, actual);
         }
 
         /// <summary>
